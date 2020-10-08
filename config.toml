@@ -1,0 +1,13 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "My New Hugo Site"
+theme = "m10c"
+[params]
+  author = "BurtonR"
+  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium."
+  [[params.social]]
+    name = "github"
+    url = "https://github.com/burtonr"
+  [[params.social]]
+    name = "twitter"
+    url = "https://twitter.com/_burtonr"
