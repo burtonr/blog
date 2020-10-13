@@ -30,10 +30,25 @@ In the end, this concept gives you:
 - Issues can be turned in to tests easier 
 
 ## Include Everything
-A lot of unit testing tools, and reporting tools, allow the user to define a filter that can exclude certain items from being run or counted in a code coverage report. This feature should be used with a lot of thought and caution. Another way to think of this is putting a {{??????: curtain over a room???}}. You're providing a safe place to put functionality that will never be tested.
+A lot of unit testing tools, and reporting tools, allow the user to define a filter that can exclude certain items from being run or counted in a code coverage report. This feature should be used with a lot of thought and caution. Another way to think of this is putting a {{??TODO??: curtain over a room???}}. You're providing a safe place to put functionality that will never be tested.
 
 The idea for using the "exlude" or "filter" feature is that there are some things that **cannot** be unit tested. Things like reading from a database, making an API call, and other functionality that is out of our control. The problem is that if that is used, it can be abused. This means developers can put additional logic or functionality inside those files that are ignored. It's easy, and won't cause any immediate problems since there are no tests, and it's being ignored. Tests won't fail, code coverage won't go down, everything is fine until a problem is discovered much later in the development lifecycle hopefully by a QA team, but possibly from a user. 
 
 If we don't exclude anything, we are owning that some things cannot be tested, and that's OK. It's unrealistic to strive for 100% code coverage within a project. Typically, what I've seen, is about 70% coverage goal. If your project has more that 30% of your written code that **cannot** be tested, that's a problem. A problem that can be fixed though. Perhaps the function that makes a call to an external API is actually 100 lines long. You cannot test that function because there is functionality outside of our control in it.
 
 ## Code First, Test Later
+The idea of Test-Driven Development (TDD) is that the tests are written first. Then, it's a process of having the test fail, update the functionality, the test then passes. The code starts off with a simple implementation to allow the test to pass. This is often done with hard-coded values, or overly simple functions. 
+
+This works, and often works well, in simple implementations, or when the design is very thorough and explicit. More often than not, you will find that this is not the case. Features and functionality is more complex than checking if a string is an anagram. The designs will be vauge, and likely change as the features become more complete.
+
+What happens then is the tests that were written first are now broken and no longer relevant. So, those tests are not run, commented out, or deleted entirely. This leads into a similar situation to the first point of "test the edge". When all the tests are broken, nobody wants to take the time to go through and figure out what's broken, why, and how to get it fixed.
+
+A different approach is to "hack"[^1] through an initial implementation without any tests. This initial version may be delivered to a testing team, or possibly as a demo for the client or stakeholder. This allows the actual application to be seen and used by the people who would request changes as fast as possible. There may be some changes requested after this first version is tried out. With the code in a rough state, it's much easier to make those changes, change it faster, and get faster feadback.
+
+Once the test team, stakeholders, or clients are satisfied, at least initially, you now have something to test for. In this case, opposite or test-driven development, we know that it is working the way we want it to rather than knowing how we want it to work. Now, we write the tests to ensure that if anything changes, the outcome will remain the same. 
+
+Again, this lines up with the "test the edge" concept. We're only testing the main functionality to ensure that the results remain unchanged. This is what the test team and clients have agreed to. It also means that we can update the less-than-ideal code to a better state without having to rewrite a bunch of tests. As long as it all produces the same results, we can move things around and make use of some coding best practices.
+
+
+
+[^1]: I use the word "hack" as a way to say the code is written fast and with a focus on making it work rather than best-practices or readability.
