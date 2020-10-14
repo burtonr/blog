@@ -49,6 +49,13 @@ Once the test team, stakeholders, or clients are satisfied, at least initially, 
 
 Again, this lines up with the "test the edge" concept. We're only testing the main functionality to ensure that the results remain unchanged. This is what the test team and clients have agreed to. It also means that we can update the less-than-ideal code to a better state without having to rewrite a bunch of tests. As long as it all produces the same results, we can move things around and make use of some coding best practices.
 
+## Summary
+To summarize the ideas above, make it easy to write tests, know what's tested, and don't test too much.
 
+Making it easy to write tests is key to ensuring that new features and changes get covered by tests. If it's even a little bit difficult, tests don't get written. It's difficult to allocate time to the scrum master, manager, or whomever is in charge of making promises.
+
+Knowing what's tested is important to know when there is a problem. If you know about half of the features related to the problem are covered in tests, start looking at the features that are not yet covered. Of course, once you find the source of the problem, be sure to add a test for it!
+
+Don't test too much or you risk making it difficult to keep up with changes. The smaller functions will be covered by a higher level test if it's done right. It will take some experimentation to get it "right", but once it's there, you can achieve a high level over coverage with a minimal set of tests with multiple test cases, or sample data.
 
 [^1]: I use the word "hack" as a way to say the code is written fast and with a focus on making it work rather than best-practices or readability.
