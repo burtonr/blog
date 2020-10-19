@@ -1,0 +1,30 @@
+baseURL = "https://blog.burtonr.dev/"
+languageCode = "en-us"
+title = "BurtonR Blog"
+theme = "etch"
+[params]
+  author = "Burton Blog"
+  description = "BurtonR thoughts and opinions for my future self, and others."
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "posts"
+    title = "posts"
+    url = "/"
+    weight = 10
+
+# TODO: 'About' on the blog site, or just link to burtonr.dev???
+#  [[menu.main]]
+#    identifier = "about"
+#    name = "about"
+#    title = "about"
+#    url = "/about/"
+#    weight = 20
+  [[params.social]]
+    name = "github"
+    url = "https://github.com/burtonr"
+  [[params.social]]
+    name = "twitter"
+    url = "https://twitter.com/_burtonr"
+[permalinks]
+  posts = "/:title/"
