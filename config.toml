@@ -1,13 +1,30 @@
-baseURL = "http://example.org/"
+baseURL = "https://blog.burtonr.dev/"
 languageCode = "en-us"
 title = "My New Hugo Site"
-theme = "m10c"
+theme = "etch"
 [params]
   author = "BurtonR"
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium."
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "posts"
+    title = "posts"
+    url = "/"
+    weight = 10
+
+# TODO: 'About' on the blog site, or just link to burtonr.dev???
+#  [[menu.main]]
+#    identifier = "about"
+#    name = "about"
+#    title = "about"
+#    url = "/about/"
+#    weight = 20
   [[params.social]]
     name = "github"
     url = "https://github.com/burtonr"
   [[params.social]]
     name = "twitter"
     url = "https://twitter.com/_burtonr"
+[permalinks]
+  posts = "/:title/"
