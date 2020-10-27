@@ -1,10 +1,10 @@
 baseURL = "https://blog.burtonr.dev/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "BurtonR Blog"
 theme = "etch"
 [params]
-  author = "BurtonR"
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium."
+  author = "Burton Blog"
+  description = "BurtonR thoughts and opinions for my future self, and others."
 [menu]
   [[menu.main]]
     identifier = "posts"
