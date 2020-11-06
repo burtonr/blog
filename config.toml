@@ -1,17 +1,32 @@
 baseURL = "https://blog.burtonr.dev/"
 languageCode = "en-us"
-title = "BurtonR Blog"
-theme = "etch"
+title = "BurtonR"
+theme = "hugo-dusk"
+paginate = 10
+
+[author]
+  name = "Burton"
+
 [params]
-  author = "Burton Blog"
   description = "BurtonR thoughts and opinions for my future self, and others."
+  github = "burtonr"
+  gitlab = "burtonr"
+  twitter = "_burtonr"
+  linkedin = "burtonrheutan"
+  email = "burton@rheutan.dev"
+
 [menu]
   [[menu.main]]
     identifier = "posts"
-    name = "posts"
+    name = "Posts"
     title = "posts"
     url = "/"
     weight = 10
+  [[menu.main]]
+    name = "Tags"
+    weight = 20
+    identifier = "tag"
+    url = "/tags/"
 
 # TODO: 'About' on the blog site, or just link to burtonr.dev???
 #  [[menu.main]]
@@ -20,11 +35,5 @@ theme = "etch"
 #    title = "about"
 #    url = "/about/"
 #    weight = 20
-  [[params.social]]
-    name = "github"
-    url = "https://github.com/burtonr"
-  [[params.social]]
-    name = "twitter"
-    url = "https://twitter.com/_burtonr"
 [permalinks]
   posts = "/:title/"

@@ -6,15 +6,20 @@ image_sources:
   - https://pixabay.com/photos/backpack-scenic-hiking-nature-1381727/
   - https://pixabay.com/photos/lego-figurines-toys-crowd-many-1044891/
   - https://pixabay.com/photos/hand-type-keyboard-money-finance-2722108/
+tags: [
+  opinion,
+  testing
+]
 ---
-{{< toc >}}
-# Thoughts on Unit Testing
+
 To some surprise, I actually enjoy unit testing the code I write. I didn't used to, I've only recently come into enjoying testing my code. With these three understandings that follow, I actually enjoy writing tests.
 
 Understand this is not an absolute. Depending on the situation, the ideas may change slightly, but overall the concepts remain. 
 
+Those three things are: Test only the edge of importance, Include all your code in reporting, and finally, write code before trying to test it.
+
 {{< figure src="/images/unit-testing/backpack.jpg" caption="from here, you can only see the big picture" alt="hiker on mountain" >}}
-## Test the Edge
+# Test the Edge
 Unit testing is concept of testing a unit of work to ensure it provides the expected result.
 
 Often, that "unit of work" is translated to "method", or "function" within a code base. Meaning, every function should have an accompanying unit test. Starting a new project from nothing as test-driven development, or test-first coding, this works. However, it's not long after starting that new project that there become hundreds of tests. Not a bad thing, but something needs changed. A function needs another parameter, or the object parameter had a property removed or renamed. How many tests have you had to change now? How long did that take? The actual change likely took a fraction of the time to update all the tests.
@@ -36,7 +41,7 @@ In the end, this concept gives you:
 - Issues can be turned in to tests easier 
 
 {{< figure src="/images/unit-testing/lego_people.jpg" caption="don't leave anyone out" alt="lego figures" >}}
-## Include Everything
+# Include Everything
 A lot of unit testing tools, and reporting tools, allow the user to define a filter that can exclude certain items from being run or counted in a code coverage report. This feature should be used with a lot of thought and caution. You're providing a safe place to put functionality that will never be tested, and that can be easily abused.
 
 The idea for using the "exclude" or "filter" feature is that there are some things that **cannot** be unit tested. Things like reading from a database, making an API call, and other functionality that is out of our control. The problem is that if that is used, it can be abused. This means developers can put additional logic or functionality inside those files that are ignored. It's easy, and won't cause any immediate problems since there are no tests, and it's being ignored. Tests won't fail, code coverage won't go down, everything is fine until a problem is discovered much later in the development lifecycle hopefully by a QA team, but possibly from a user. 
@@ -44,7 +49,7 @@ The idea for using the "exclude" or "filter" feature is that there are some thin
 If we don't exclude anything, we are owning that some things cannot be tested, and that's OK. It's unrealistic to strive for 100% code coverage within a project. Typically, what I've seen, is about 70% coverage goal. If your project has more that 30% of your written code that **cannot** be tested, that's a problem. A problem that can be fixed though. Perhaps the function that makes a call to an external API is actually 100 lines long. You cannot test that function because there is functionality outside of our control in it.
 
 {{< figure src="/images/unit-testing/typing.jpg" caption="code --> profit" alt="hands typing on laptop" >}}
-## Code First, Test Later
+# Code First, Test Later
 The idea of Test-Driven Development (TDD) is that the tests are written first. Then, it's a process of having the test fail, update the functionality, the test then passes. The code starts off with a simple implementation to allow the test to pass. This is often done with hard-coded values, or overly simple functions. 
 
 This works, and often works well, in simple implementations, or when the design is very thorough and explicit. More often than not, you will find that this is not the case. Features and functionality is more complex than checking if a string is an anagram. The designs will be vague, and likely change as the features become more complete.
@@ -57,7 +62,7 @@ Once the test team, stakeholders, or clients are satisfied, at least initially, 
 
 Again, this lines up with the "test the edge" concept. We're only testing the main functionality to ensure that the results remain unchanged. This is what the test team and clients have agreed to. It also means that we can update the less-than-ideal code to a better state without having to rewrite a bunch of tests. As long as it all produces the same results, we can move things around and make use of some coding best practices.
 
-## Summary
+# Summary
 To summarize the ideas above, make it easy to write tests, know what's tested, and don't test too much.
 
 Making it easy to write tests is key to ensuring that new features and changes get covered by tests. If it's even a little bit difficult, tests don't get written. It's difficult to allocate time to the scrum master, manager, or whomever is in charge of making promises.
