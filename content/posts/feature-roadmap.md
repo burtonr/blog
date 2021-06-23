@@ -4,6 +4,8 @@ date: 2021-01-01
 draft: false
 image_sources:
   - https://pixabay.com/photos/highway-freeway-speedway-road-828985/
+  - https://pixabay.com/photos/highway-a38-thuringia-germany-3803025/
+  - https://pixabay.com/photos/way-fields-peace-of-mind-village-1457589/
 tags: [
   opinion,
   refactoring
@@ -20,7 +22,7 @@ In this post, we'll go through a situation where we are working on a site where 
 # The Plan
 I know, I _just said_ "We're not discussing planning". There's always a plan. Even if it's not fully written out, or maybe some things aren't confirmed yet. There is at least _something_ to work toward. This basic plan is generally what gets the stakeholders to agree on spending the time on the feature.
 
-This plan may be just a start of a much larger set of features. Perhaps the "plan" is just "We need to allow people to log in and save a list of favorite news sources." If you let your mind wander with all the possiblities, there is a lot that could enable. There is also a lot of different ways that could be done.
+This plan may be just a start of a much larger set of features. Perhaps the "plan" is just "We need to allow people to log in and save a list of favorite news sources." If you let your mind wander with all the possibilities, there is a lot that could enable. There is also a lot of different ways that could be done.
 
 - What should the log in page look like?
 - Are users without a profile allowed to access the site?
@@ -31,8 +33,8 @@ This plan may be just a start of a much larger set of features. Perhaps the "pla
 
 There are a lot of questions that should be answered. Going back to the initial request, they only need to have a list of sources per user. That's the plan.
 
+{{< figure src="/images/feature-roadmap/interstate.jpg" caption="here to 'pretty much' there as fast as possible" alt="long exposure of interstate traffic" >}}
 # The Interstate
-> Get from 'A' to somewhere in the area of 'B'
 
 Think about the roadway system. If you need to get a long distance as quick as possible, you drive on an interstate. There's a high speed limit, there are a lot of lanes in both directions, and there aren't any traffic signals or other things that may slow you down. There are some exit ramps that lead to places of interest. They won't get everyone exactly where they need to be, but they will get almost everyone pretty close to where they are going.
 
@@ -48,8 +50,8 @@ The goal is to get the most amount of people to using the feature as fast as pos
 
 We've built the feature interstate. Most people can use it to use the account feature, although it's not fully complete. This completes the original request in it's most basic form.
 
+{{< figure src="/images/feature-roadmap/highway.jpg" caption="in this case, there is no 'my way', only the highway" alt="four lane highway with light traffic" >}}
 # The Highway
-> In this case, there is no "my way", just the highway
 
 In the roadway system, a highway is a wider road with more lanes, higher speed limit, and limited traffic lights. This adds a lot more places to go, and more people can get closer to where they want to be. Driving on the highway between cities means there are more exits on the same road.
 
@@ -63,10 +65,10 @@ We've now added more complexity to our site and provided the ability for more us
 
 We're still relying on other services to tell us about the user. This means that a user would not be able to change their username in our site, or use a different email address. We've built a highway that gets a lot of people pretty close to where they wanted to be. There is still some more work to do to get the people to their house. For that, we'll need to build some country roads.
 
+{{< figure src="/images/feature-roadmap/country-road.jpg" caption="...take me home" alt="dirt road surrounded by trees" >}}
 # Country (Local) Roads
-> ...Take me home 
 
-Country, or local, roads usually have one lane in each direction, a lower speed limit, and a lot of traffic lights or stop signs to controll traffic. It's a lot slower, but there are a lot of them and they allow the driver to get directly to where they are going.
+Country, or local, roads usually have one lane in each direction, a lower speed limit, and a lot of traffic lights or stop signs to control traffic. It's a lot slower, but there are a lot of them and they allow the driver to get directly to where they are going.
 
 Our example site now allows users to sign in with one of many different services, but there are still those users who want to be able to change their username, use a different email address, or not have an account in one of those other services. Let's build out all of those country roads to make sure everyone can get exactly where they want to be.
 
@@ -81,6 +83,6 @@ All of this means that there are now a lot of options so that anyone may log in 
 # The Road Home
 > Home is where you make it
 
-The analogy of feature implementation and road systems is not perfect. A road system needs those country roads so people can drive from thier house to their friends house without leaving the pavement. In feature development, we can stop at building out the Interstate. Sometimes, the cost for implementing more complete features is too high, or not valuable enough. This analogy can help in the planning process to know how much effort should be invested early on. You can start the work and build out an Interstate, then later decide if you need more and should invest in building out a highway or even country roads. You can also skip ahead from building an Interstate to building out those country roads if that's what you decide.
+The analogy of feature implementation and road systems is not perfect. A road system needs those country roads so people can drive from their house to their friends house without leaving the pavement. In feature development, we can stop at building out the Interstate. Sometimes, the cost for implementing more complete features is too high, or not valuable enough. This analogy can help in the planning process to know how much effort should be invested early on. You can start the work and build out an Interstate, then later decide if you need more and should invest in building out a highway or even country roads. You can also skip ahead from building an Interstate to building out those country roads if that's what you decide.
 
 My team has found this analogy easier to discuss than the other common analogy of "t-shirt" sizing. Because the road system can better relate to number of users affected rather than amount of work. Work effort is difficult to estimate, but knowing that you can skip some complexity to allow a majority of users most of what they need means that the work is less difficult (generally speaking).
