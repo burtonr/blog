@@ -3,7 +3,6 @@ title: "The Right Solution"
 date: 2021-06-09
 draft: false
 image_sources:
-  - https://pixabay.com/photos/ethics-right-wrong-ethical-moral-2991600/
   - https://pixabay.com/photos/gears-metal-rust-technology-1666498/
   - https://pixabay.com/photos/welding-aluminum-industry-2178127/
   - https://pixabay.com/photos/magnifying-glass-detective-looking-4340698/
@@ -12,7 +11,6 @@ tags: [
   refactoring
 ]
 ---
-{{< figure src="/images/right-solution/right-wrong.jpg" caption="choose the 'right' path" alt="right and wrong road signs" >}}
 # Creating the "Right" Solution
 The "right" solution is rarely the first solution. That's the post. The right solution is rarely the first solution. Of course, it wouldn't be much of a post if it was just a single sentence. However, once you know that the first solution you come up with will likely not be "right", you can can focus on getting things done.
 
