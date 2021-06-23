@@ -1,7 +1,7 @@
 ---
 title: "The Right Solution"
 date: 2021-06-09
-draft: true
+draft: false
 image_sources:
   - https://pixabay.com/photos/highway-freeway-speedway-road-828985/
 tags: [
@@ -16,13 +16,13 @@ It's common to overthink a solution to a problem. Especially in software develop
 
 - "Does this need to be a parameter passed in?"
 - "Should I separate this functionality into separate executions?"
-- "Does this follow the design principle of least privliged?" (**SPELLING**)
+- "Does this follow the design principle of least privileged?"
 - and so on...
 
 # Make it work
 The first step in solving a problem, or designing a new feature is as simple as "make it work". This can be easier said than done when you've been taught, or read a lot, about all the best design patterns.
 
-When you're first getting into solving the problem, it's important to block all those thoughts and desires to make it "right", and focus on getting it done. Put all the logic in one giant function. Make all the calls syncronous (**SPELLING**). Only use the minimum parameters (if any at all), and hard-code defaults when you need to.
+When you're first getting into solving the problem, it's important to block all those thoughts and desires to make it "right", and focus on getting it done. Put all the logic in one giant function. Make all the calls synchronous. Only use the minimum parameters (if any at all), and hard-code defaults when you need to.
 
 The goal is to have something that solves the problem at hand. The immediate problem, not the perceived problems of testability, scaling, maintainability, or anything else. 
 
@@ -55,4 +55,4 @@ Had we started out with thinking about the proper parameters, making sure the ne
 When you ignore the best practices, and solve the problem immediately, sometimes you'll find that the first solution you thought would be best won't work at all and just cause more problems. Solving simple problems one at a time allows the right _solution_ to be found on it's own.
 
 # Don't Panic
-Easier said than done. Solve the simple problems first. Then, solve the problems that come up after that. Don't think about the code review, or how someone else will react to seeing "Scuba Steve" in you code. The right solution is out there, but it may be hiding. In a castle. Gaurded by dragons. Don't think about picking the lock to the door where the solution is hiding before facing your first dragon.
+Easier said than done. Solve the simple problems first. Then, solve the problems that come up after that. Don't think about the code review, or how someone else will react to seeing "Scuba Steve" in you code. The right solution is out there, but it may be hiding. In a castle. Guarded by dragons. Don't think about picking the lock to the door where the solution is hiding before facing your first dragon.
