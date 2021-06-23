@@ -3,12 +3,16 @@ title: "The Right Solution"
 date: 2021-06-09
 draft: false
 image_sources:
-  - https://pixabay.com/photos/highway-freeway-speedway-road-828985/
+  - https://pixabay.com/photos/ethics-right-wrong-ethical-moral-2991600/
+  - https://pixabay.com/photos/gears-metal-rust-technology-1666498/
+  - https://pixabay.com/photos/welding-aluminum-industry-2178127/
+  - https://pixabay.com/photos/magnifying-glass-detective-looking-4340698/
 tags: [
   opinion,
   refactoring
 ]
 ---
+{{< figure src="/images/right-solution/right-wrong.jpg" caption="choose the 'right' path" alt="right and wrong road signs" >}}
 # Creating the "Right" Solution
 The "right" solution is rarely the first solution. That's the post. The right solution is rarely the first solution. Of course, it wouldn't be much of a post if it was just a single sentence. However, once you know that the first solution you come up with will likely not be "right", you can can focus on getting things done.
 
@@ -19,6 +23,7 @@ It's common to overthink a solution to a problem. Especially in software develop
 - "Does this follow the design principle of least privileged?"
 - and so on...
 
+{{< figure src="/images/right-solution/gears.jpg" caption="the simplest machines are most efficient" alt="two rusty gears together" >}}
 # Make it work
 The first step in solving a problem, or designing a new feature is as simple as "make it work". This can be easier said than done when you've been taught, or read a lot, about all the best design patterns.
 
@@ -30,6 +35,7 @@ As an example, let's say the problem to solve is that the website you're develop
 
 Obviously, this is not done, but it solves most of the initial problem so that you can move to focus on more specific areas of the problem. With that silly name and picture, you've created an entrypoint to get the data. You've added the execution call to the appropriate place. And, data is being returned. It "works".
 
+{{< figure src="/images/right-solution/welding.jpg" caption="make the important update" alt="welder welding metal on a table" >}}
 # Make it better
 Now that the basics are in place, we can focus on making that functionality work better. Rather than always returning the name "Scuba Steve", how would you get the actual user's name? We would need some sort of parameter to be passed in allowing the name to be looked up somewhere. 
 
@@ -43,6 +49,7 @@ We'll add the email address as a parameter to this new function since it's the o
 
 Of course, that goes against some of the best practices of separating data access calls, doing too much in a single function, and so on, but it is better. Later, we can go back and refactor more to make it "more" better.
 
+{{< figure src="/images/right-solution/magnifying.jpg" caption="everything is easier to find when you know what you're looking for" alt="man with magnifying glass to his eye" >}}
 # Allow the Solution to be Found
 At this point, you've solved the problem and added the new feature of returning a user's name and image. It's not clean code, or testable, or robust, or maintainable, or "good", but it does solve the problem. We could release it to production as-is. Maybe you should.
 
