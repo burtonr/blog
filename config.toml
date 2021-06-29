@@ -1,39 +1,36 @@
 baseURL = "https://blog.burtonr.dev/"
 languageCode = "en-us"
 title = "BurtonR"
-theme = "hugo-dusk"
-paginate = 10
+theme = "agency-blog"
+paginate = 8
 
-[author]
-  name = "Burton"
+[params.navigation]
+  brand = "BurtonR"
+  posts = "Posts"
+  tags = "Tags"
 
-[params]
-  description = "BurtonR thoughts and opinions for my future self, and others."
-  github = "burtonr"
-  gitlab = "burtonr"
-  twitter = "_burtonr"
-  linkedin = "burtonrheutan"
-  email = "burton@rheutan.dev"
+[[menu.postpend]]
+  name = "burtonr"
+  weight = 100
+  url = "https://burtonr.dev"
 
-[menu]
-  [[menu.main]]
-    identifier = "posts"
-    name = "Posts"
-    title = "posts"
-    url = "/"
-    weight = 10
-  [[menu.main]]
-    name = "Tags"
-    weight = 20
-    identifier = "tag"
-    url = "/tags/"
+[params.hero]
+  title = "BurtonR Blog"
+  subtitle = "Thoughts and opinions for future me, and hopefully others as well"
 
-# TODO: 'About' on the blog site, or just link to burtonr.dev???
-#  [[menu.main]]
-#    identifier = "about"
-#    name = "about"
-#    title = "about"
-#    url = "/about/"
-#    weight = 20
-[permalinks]
-  posts = "/:title/"
+[params.posts]
+  enable = true
+  title = "Posts"
+  url = "/posts/"
+[params.tags]
+  enable = true
+  title = "Tags"
+  url = "/tags/"
+
+# TODO: Future update to display social/contact links
+# [params]
+#   github = "burtonr"
+#   gitlab = "burtonr"
+#   twitter = "_burtonr"
+#   linkedin = "burtonrheutan"
+#   email = "burton@rheutan.dev"
