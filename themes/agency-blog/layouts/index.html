@@ -1,0 +1,12 @@
+  {{ partial "header.html" . }}
+
+  {{ partial "hero.html" . }}
+
+  <div class="summary-group">
+    {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+      {{ range $paginator.Pages }}
+        {{ .Render "summary" }}
+    {{ end }}
+  </div>
+
+  {{ partial "footer.html" . }}
