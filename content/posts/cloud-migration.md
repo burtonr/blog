@@ -35,11 +35,24 @@ An alternative approach is to make some minor adjustments to the application cod
 
 Some things that may be good first processes to make those changes could be logging, messaging, and authentication. Each of these items are provided by all the major cloud providers as a service and also work well with existing implementations with minor changes.
 
-If your existing logging solution is 
+If your existing logging solution is writing to a log file on the host server, you could quickly change that to either write to `STDOUT`, or use the SDK provided by the cloud provider. Likely, the logic that writes to the existing solution is a shared, and isolated bit of code. This upgrade would be focused on that one small section, and wouldn't require a large sweeping change. It can also easily be tested and verified. 
 
-lift-and-adjust
-    more code changes, but still minor
-    utilize more cloud-native features
+Upgrading your logging solution is a big gain with minimal effort. All the major cloud providers offer a service for logging that includes some level of search and metrics built in. Being able to utilize that early on, and throughout the remaining tasks of migration will be very helpful for everyone.
+
+Messaging, and Authentication are two other areas that are likely already isolated in the current solution. They are also provided as a service in all the major cloud providers. Upgrading these features to be cloud-native can add a great deal of benefit with the additional features provided.
+
+### Something to be aware of
+As you're migrating some of these features into cloud services, the costs will increase immediately. Logging, messaging, and authentication are all billed on a per-access plan. This means that each time you read or write to one of those services, a charge is added. Most of the time, there is a generous amount before a charge is incurred (1 million log writes before billing as an example). These features are typically accessed a lot. It may be that in the current solution, there is a log message on every function call by default. This could quickly run into a chargable amount of log entries, and thus start adding up the charge on the monthly bill.
+
+Be sure that the management teams are aware that there will be an immediate cost. It may seem like a lot of money initially for something as small and simple as log messages.
+
+It helps to consider the cost is more than just storing log messages. It provides general access to those logs so that it's easier for everyone to see what's happening. The cost also includes searching, and metrics gathering. Things that may not have been available in the current solution writing to a local file.
+
+With those additional perks included, the price is much more reasonable. Also, you may be able to go through and adjust the logging, or messaging, to be less verbose. Writing less logs, with more meaning, will help with the cost, and also may help with understanding as well.
+
+
+## Container-ization, Storage, and DevOps
+
 Containers, cloud-storage, Infrastructure-as-Code
 Prepare monolith for strangulation
     isolate sections of code that can run independently and move them to a cloud infrastructure (serverless, vm, static storage...)
