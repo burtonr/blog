@@ -52,7 +52,30 @@ With those additional perks included, the price is much more reasonable. Also, y
 
 
 ## Container-ization, Storage, and DevOps
+The beginning of the end, or the end of the beginning. Now that the application is set up to start using some of the cloud features, specifically logging, you can start to migrate to a fully cloud-native application. 
 
-Containers, cloud-storage, Infrastructure-as-Code
+In my opinion, there are three core pieces of a cloud-native application. Containers, Storage, and Infrastructure-as-Code (IaC). There are a lot of other considerations. Some others are detailed in the [12-factor app](https://12factor.net/) which describes how to make an application declarative, deployable, and scalable. More things to consider include networking, health checks, and self-healing. Look for a future post with more details about cloud-native applications.
+
+For now, at the end of the beginning of your cloud migration process, focus on the three parts I outlined earlier.
+
+### Containerization
+Containers are the core of cloud technology. Containers allow for reproducable environments, portability, and ease of deployments. Applications running in a container can quickly and easily be deployed and upgraded. Additionaly, making an application run in a container can be straight-forward. At the root of a container, it's just a minified operating system with Linux, Windows, or a variety of other Unix-based operating systems.
+
+It's possible no code changes will need to happen to get your application to run inside a container. Although, most likely, it will require some minor changes depending on what the application does, or communicates with. Add a Dockerfile to your code base and get started trying it out to see what needs to be adjusted, if anything at all. There are sample Dockerfiles for any language your application is written in. Start with the sample, and add things that your application needs. Once it's up and running as a container, it will be much easier to go back and adjust the container image to be smaller, or more performant. 
+
+Every cloud provider offers a Containers-as-a-service offering where you can provide minimal configuration to have a single container running in the cloud. If you've updated your application to use cloud logging as mentioned in the lift-and-adjust section, you'll still be able to keep an eye on any problems that may come up.
+
+With the application running in a container, new team members can get started faster, deployments can be simplified to pushing the image, and updating the configuration.
+
+### Storage
+When running your application in the cloud, or in a container, keep the idea in mind that there is no local disk. The storage system in both are ephemeral and will disapear if your application stops or crashes. Cloud Storage is the way to compensate for that 'feature'.
+
+
+
+### Infrastructure-as-Code (IaC)
+Infrastructure-as-Code is the idea that all of the infrastructure is defined in a text file to allow for quickly reproducing, or duplicating entire environments in the cloud.
+
+
+
 Prepare monolith for strangulation
     isolate sections of code that can run independently and move them to a cloud infrastructure (serverless, vm, static storage...)
