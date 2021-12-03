@@ -70,12 +70,23 @@ With the application running in a container, new team members can get started fa
 ### Storage
 When running your application in the cloud, or in a container, keep the idea in mind that there is no local disk. The storage system in both are ephemeral and will disappear if your application stops or crashes. Cloud Storage is the way to compensate for that 'feature'.
 
-
+TODO!!! 
 
 ### Infrastructure-as-Code (IaC)
 Infrastructure-as-Code is the idea that all of the infrastructure is defined in a text (code) file to allow for quickly reproducing, or duplicating entire environments in the cloud.
 
-This concept is an important step in the migration to the cloud. Where you don't have complete control over the servers your code is running on.   
+This concept is an important step in the migration to the cloud. Where you don't have complete control over the servers your code is running on. Additionally, most services including server compute time, is calculated per minute. The ability to destroy everything when you aren't using it can save a lot of money in a short amount of time. Finally, being able to set up an _exact_ duplicate of your production environment for testing, bug reproduction, or upgrade validation is invaluable when your application is depended on by others.
+
+There are many options for managing your infrastructure as a code repository. These options range from a single shell script, to a complete product offering with it's own independent management. As you're just beginning the migration into the cloud, I would recommend avoiding the tools and product offerings. These are very nice, and have a lot of great features, but will distract from the main goal of having repeatable, coded infrastructure. Start off with a couple shell scripts that simply execute commands from your cloud provider's CLI. Google Cloud (`gcloud`), Azure (`az`), AWS (`aws`), and others have a downloadable CLI tool that can operate on most of the offered services. 
+
+Start with a script that can create a container instance, and deploy an image. Although it may not be a replication of production, it will provided you and your team the ability to quickly and repeatably deploy a container into the cloud to test with. Make small steps like this working your way toward a production, or at least test, grade environment. Ensure everyone who can use it does. This will ensure that any mistakes get fixed, and new features get added.
+
+Around the time you're nearing a production-like environment in shell scripts, you'll be wishing there was an easier way. There is! This is now the time to begin looking at the available tools. Terraform, Ansible, Salt, Chef, and more. There are a lot of options, and knowing which one to choose is easier now that you have something working for you. With the shell scripts you started with, you now know what features to look for and how you want to manage the code. 
+
+Choosing a tool is a big commitment. The choice will determine what's possible with your infrastructure, or more importantly, what's not possible. Infrastructure code is notoriously difficult to test. This means that changing to a different tool is a time consuming process that takes a lot of great care to ensure everything still works after the switch. Most tools use their own custom language or syntax, making it more difficult to swap tools at a later time. It's not impossible, but it is a significant amount of work. All that to say, choose wisely and ask questions to the respective communities.
+
+Once the tooling is in place, changes will be easier to manage. Adding additional resources, or creating temporary environments, and even creating complete blue/green environments in production will be easy and smooth! Ok, maybe not quite that easy, but it can be! Don't let the infrastructure code base slip out of relevance. It's easy to forget about it after some time of using it. Push everyone who can to use the infrastructure code to ensure it stays relevant. Discourage manual changes to the environments. It may be the case that a developer needs something in a test environment and discovers the button to enable it on the cloud provider's site. They may then consider "just pushing the button each time" when they create a new environment. Then they recommend the new person to do the same because it's easy. After some time of that happening, the infrastructure code becomes only a small step in the process of setting up a new environment rather than the **only** step.
+ 
 
 Prepare monolith for strangulation
     isolate sections of code that can run independently and move them to a cloud infrastructure (serverless, vm, static storage...)
