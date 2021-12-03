@@ -11,11 +11,11 @@ tags: [
 ]
 ---
 # Migrating to the Cloud
-There are a lot of blogs, articles, and even tutorials about how to refactor codebases into a solution that works well in the cloud. This post is not that. This is intended to share a few of the various methods of doing those migrations from an existing, likely large, codebase. It's more than just adding better error handling, retrys, and logging.
+There are a lot of blogs, articles, and even tutorials about how to refactor a codebase into a solution that works well in the cloud. This post is not that. This is intended to share a few of the various methods of doing those migrations from an existing, likely large, codebase. It's more than just adding better error handling, retries, and logging.
 
-There are a lot of other processes, and non-business code that also needs to be upgraded to perform well in a cloud environment. Here, we'll go through a process of methodical improvements that help to ease the migration. Rather than performing sweeping changes and ending up in a "death march" of neverending changes and upgrades, we'll instead make smaller changes that can be considered considerable upgrades without doing a lot of work all at once.
+There are a lot of other processes, and non-business code that also needs to be upgraded to perform well in a cloud environment. Here, we'll go through a process of methodical improvements that help to ease the migration. Rather than performing sweeping changes and ending up in a "death march" of never ending changes and upgrades, we'll instead make smaller changes that can be considered considerable upgrades without doing a lot of work all at once.
 
-The good thing about identifying which changes to make, and when, is that you can stop the migration process inbetween steps in order to continue supporting the application with bug fixes, new features, and other maintenance. 
+The good thing about identifying which changes to make, and when, is that you can stop the migration process in-between steps in order to continue supporting the application with bug fixes, new features, and other maintenance. 
 
 ## Lift and shift
 The "lift and shift" approach is one way to dive head-first into a cloud environment. This is where you would create a Virtual Machine in your cloud provider, and move all your existing code onto that VM. 
@@ -42,7 +42,7 @@ Upgrading your logging solution is a big gain with minimal effort. All the major
 Messaging, and Authentication are two other areas that are likely already isolated in the current solution. They are also provided as a service in all the major cloud providers. Upgrading these features to be cloud-native can add a great deal of benefit with the additional features provided.
 
 ### Something to be aware of
-As you're migrating some of these features into cloud services, the costs will increase immediately. Logging, messaging, and authentication are all billed on a per-access plan. This means that each time you read or write to one of those services, a charge is added. Most of the time, there is a generous amount before a charge is incurred (1 million log writes before billing as an example). These features are typically accessed a lot. It may be that in the current solution, there is a log message on every function call by default. This could quickly run into a chargable amount of log entries, and thus start adding up the charge on the monthly bill.
+As you're migrating some of these features into cloud services, the costs will increase immediately. Logging, messaging, and authentication are all billed on a per-access plan. This means that each time you read or write to one of those services, a charge is added. Most of the time, there is a generous amount before a charge is incurred (1 million log writes before billing as an example). These features are typically accessed a lot. It may be that in the current solution, there is a log message on every function call by default. This could quickly run into a chargeable amount of log entries, and thus start adding up the charge on the monthly bill.
 
 Be sure that the management teams are aware that there will be an immediate cost. It may seem like a lot of money initially for something as small and simple as log messages.
 
@@ -59,7 +59,7 @@ In my opinion, there are three core pieces of a cloud-native application. Contai
 For now, at the end of the beginning of your cloud migration process, focus on the three parts I outlined earlier.
 
 ### Containerization
-Containers are the core of cloud technology. Containers allow for reproducable environments, portability, and ease of deployments. Applications running in a container can quickly and easily be deployed and upgraded. Additionaly, making an application run in a container can be straight-forward. At the root of a container, it's just a minified operating system with Linux, Windows, or a variety of other Unix-based operating systems.
+Containers are the core of cloud technology. Containers allow for reproducible environments, portability, and ease of deployments. Applications running in a container can quickly and easily be deployed and upgraded. Additionally, making an application run in a container can be straight-forward. At the root of a container, it's just a minified operating system with Linux, Windows, or a variety of other Unix-based operating systems.
 
 It's possible no code changes will need to happen to get your application to run inside a container. Although, most likely, it will require some minor changes depending on what the application does, or communicates with. Add a Dockerfile to your code base and get started trying it out to see what needs to be adjusted, if anything at all. There are sample Dockerfiles for any language your application is written in. Start with the sample, and add things that your application needs. Once it's up and running as a container, it will be much easier to go back and adjust the container image to be smaller, or more performant. 
 
@@ -68,14 +68,14 @@ Every cloud provider offers a Containers-as-a-service offering where you can pro
 With the application running in a container, new team members can get started faster, deployments can be simplified to pushing the image, and updating the configuration.
 
 ### Storage
-When running your application in the cloud, or in a container, keep the idea in mind that there is no local disk. The storage system in both are ephemeral and will disapear if your application stops or crashes. Cloud Storage is the way to compensate for that 'feature'.
+When running your application in the cloud, or in a container, keep the idea in mind that there is no local disk. The storage system in both are ephemeral and will disappear if your application stops or crashes. Cloud Storage is the way to compensate for that 'feature'.
 
 
 
 ### Infrastructure-as-Code (IaC)
-Infrastructure-as-Code is the idea that all of the infrastructure is defined in a text file to allow for quickly reproducing, or duplicating entire environments in the cloud.
+Infrastructure-as-Code is the idea that all of the infrastructure is defined in a text (code) file to allow for quickly reproducing, or duplicating entire environments in the cloud.
 
-
+This concept is an important step in the migration to the cloud. Where you don't have complete control over the servers your code is running on.   
 
 Prepare monolith for strangulation
     isolate sections of code that can run independently and move them to a cloud infrastructure (serverless, vm, static storage...)
